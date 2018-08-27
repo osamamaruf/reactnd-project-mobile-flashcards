@@ -4,7 +4,7 @@ export const DECKS_STORAGE_KEY = 'UdaciCards:decks'
 
 
 
- function setDummyData () {    
+ export function handleInitialData () {    
   
     let dummyData = {
         React: {
@@ -34,7 +34,7 @@ export const DECKS_STORAGE_KEY = 'UdaciCards:decks'
   
     AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(dummyData))
   
-    return dummyData
+    return Promise.resolve(dummyData)
   }
   
   export function getDecks () {
