@@ -4,12 +4,12 @@ import { receiveDecks } from '../actions'
 import { handleInitialData } from '../utils/api'
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import Deck from './Deck'
+import { AppLoading} from 'expo'
 
-class DeckList extends React.Component {
-  state = {      
-    ready : false
-  } 
-  
+class DeckList extends React.Component { 
+  state = {
+    ready: false,
+  }
   componentDidMount(){
     const { dispatch } = this.props
 
@@ -24,6 +24,12 @@ class DeckList extends React.Component {
 
   render() {
     const { decks } = this.props
+    const { ready } = this.state
+
+    if (ready === false) {
+      return <AppLoading />
+    }
+
     return (
       <View style={styles.container}>  
         <FlatList 
