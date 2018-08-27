@@ -22,7 +22,10 @@ class DeckList extends React.Component {
   renderItem = ({ item })=>{
     return (
       <View style={styles.item}>
-        <TouchableOpacity onPress={() => console.log('Pressed!')}> 
+        <TouchableOpacity onPress={() => this.props.navigation.navigate(
+              'DeckDetail',
+              { key: item.title }
+            )}> 
           <Deck title={item.title} cardCount={item.questions.length}/>
         </TouchableOpacity>
       </View>
