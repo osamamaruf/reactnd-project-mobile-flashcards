@@ -5,9 +5,10 @@ import { Provider } from 'react-redux'
 import reducer from './reducers'
 import DeckList from './components/DeckList'
 import NewDeck from './components/NewDeck'
+import DeckDetail from './components/DeckDetail'
 import { createMaterialTopTabNavigator, createStackNavigator } from 'react-navigation'
 import { Constants } from 'expo'
-import { blue } from './utils/colors'
+import { blue, white } from './utils/colors'
 
 export default class App extends React.Component {
   render() {
@@ -15,7 +16,7 @@ export default class App extends React.Component {
       <Provider store={createStore(reducer)}>
         <View style={styles.container}>
           <UdaciStatusBar backgroundColor={blue} barStyle="light-content"/>
-          <Tabs />
+          <MainNavigator />
         </View>
       </Provider>
     );
@@ -35,15 +36,40 @@ const Tabs= createMaterialTopTabNavigator({
     screen: DeckList,
     navigationOptions: {
       tabBarLabel: 'Decks',      
-    },
+    },    
   },
   NewDeck: {
     screen: NewDeck,
     navigationOptions: {
       tabBarLabel: 'New Deck',      
-    },
+    }
   },
+  } , {
+    tabBarOptions: {
+      style:{
+        backgroundColor: blue
+      }
+    }
 });
+
+const MainNavigator = createStackNavigator({
+  Home: {
+    screen: Tabs,
+    navigationOptions: {
+      header: null
+    } 
+  },
+  DeckDetail: {
+    screen: DeckDetail,
+    navigationOptions: {
+      title: 'UdaciCards',
+      headerTintColor: white,
+      headerStyle: {
+        backgroundColor: blue,
+      }
+    }
+  }
+})
 
 const styles = StyleSheet.create({
   container: {
