@@ -35,6 +35,7 @@ class DeckList extends React.Component {
   render() {
     const { decks } = this.props
     const { ready } = this.state
+    console.log(decks)
 
     if (ready === false) {
       return <AppLoading />
@@ -75,7 +76,12 @@ const styles = StyleSheet.create({
 
 function mapStateToProps (decks) {
   return {
-    decks
+    decks : Object.keys(decks).map((deck, key) => {
+      return {
+        ...decks[deck],
+        key: key.toString()
+      }
+    })
   }
 }
 
