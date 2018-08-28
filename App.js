@@ -6,6 +6,8 @@ import reducer from './reducers'
 import DeckList from './components/DeckList'
 import NewDeck from './components/NewDeck'
 import DeckDetail from './components/DeckDetail'
+import AddCard from './components/AddCard'
+import Quiz from './components/Quiz'
 import { createMaterialTopTabNavigator, createStackNavigator } from 'react-navigation'
 import { Constants } from 'expo'
 import { blue, white } from './utils/colors'
@@ -63,6 +65,26 @@ const MainNavigator = createStackNavigator({
     screen: DeckDetail,
     navigationOptions: {
       title: 'UdaciCards',
+      headerTintColor: white,
+      headerStyle: {
+        backgroundColor: blue,
+      }
+    }
+  },
+  AddCard: {
+    screen: AddCard,
+    navigationOptions: {
+      title: 'New Card',
+      headerTintColor: white,
+      headerStyle: {
+        backgroundColor: blue,
+      }
+    }
+  },
+  Quiz: {
+    screen: Quiz,
+    navigationOptions: {
+      title: 'Quiz',
       headerTintColor: white,
       headerStyle: {
         backgroundColor: blue,
