@@ -8,11 +8,14 @@ class NewDeck extends React.Component {
     title: ''
   }
 
-  handleTextChange= (title) => {
-    console.log(title)
+  handleTextChange= (title) => {    
     this.setState(()=> ({
       title
     }))
+  }
+
+  isDisabled = () => {
+    return this.state.title===''
   }
   
   render() {
@@ -25,7 +28,7 @@ class NewDeck extends React.Component {
           style={styles.input}
           onChangeText={this.handleTextChange}
         />
-        <TouchableOpacity style={styles.btn} onPress={() => console.log(title)}>
+        <TouchableOpacity disabled={ this.isDisabled() } style={styles.btn} onPress={() => console.log(title)}>
           <Text style={styles.btnText}>Submit</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
