@@ -34,8 +34,7 @@ class DeckList extends React.Component {
 
   render() {
     const { decks } = this.props
-    const { ready } = this.state
-    console.log(decks)
+    const { ready } = this.state    
 
     if (ready === false) {
       return <AppLoading />
