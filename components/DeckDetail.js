@@ -10,10 +10,22 @@ class DeckDetail extends React.Component {
     return (
       <View style={styles.container}>
         <Deck title={deck.title} cardCount={deck.questions.length}/>
-        <TouchableOpacity style={[styles.btn, styles.addBtn]}>
+        <TouchableOpacity 
+          style={[styles.btn, styles.addBtn]}
+          onPress={() => this.props.navigation.navigate(
+            'AddCard',
+            { key: deck.title }
+          )}
+        >
           <Text style={ styles.btnText }>Add Card</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.btn, styles.quizBtn]}>
+        <TouchableOpacity 
+          style={[styles.btn, styles.quizBtn]}
+          onPress={() => this.props.navigation.navigate(
+            'Quiz',
+            { key: deck.title }
+          )}
+        >
           <Text style={ styles.btnText }>Start Quiz</Text>          
         </TouchableOpacity>
       </View>
