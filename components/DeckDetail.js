@@ -9,7 +9,9 @@ class DeckDetail extends React.Component {
     const { deck } = this.props 
     return (
       <View style={styles.container}>
-        <Deck title={deck.title} cardCount={deck.questions.length}/>
+        <View style={styles.deck}> 
+          <Deck title={deck.title} cardCount={deck.questions.length}/>
+        </View>
         <TouchableOpacity 
           style={[styles.btn, styles.addBtn]}
           onPress={() => this.props.navigation.navigate(
@@ -43,7 +45,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     paddingLeft: 50,
-    paddingRight: 50   
+    paddingRight: 50 ,
+    marginTop: 17,
   },
   addBtn: {
     backgroundColor: green
@@ -53,6 +56,24 @@ const styles = StyleSheet.create({
   }, 
   btnText:{
     color: white
+  },  
+  deck: {
+    width: 300,
+    height: 250,
+    backgroundColor: white,
+    borderRadius: 2,
+    padding: 20,
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 17,    
+    justifyContent: 'center',
+    shadowRadius: 3,
+    shadowOpacity: 0.8,
+    shadowColor: 'rgba(0, 0, 0, 0.24)',
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
   }
 });
 
