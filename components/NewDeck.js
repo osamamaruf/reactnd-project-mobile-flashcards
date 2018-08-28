@@ -28,7 +28,10 @@ class NewDeck extends React.Component {
           style={styles.input}
           onChangeText={this.handleTextChange}
         />
-        <TouchableOpacity disabled={ this.isDisabled() } style={styles.btn} onPress={() => console.log(title)}>
+        <TouchableOpacity 
+          disabled={ this.isDisabled() } 
+          style={this.isDisabled() ? [styles.btn,styles.disabledBtn] : styles.btn}
+          onPress={() => console.log(title)}>
           <Text style={styles.btnText}>Submit</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
@@ -51,7 +54,10 @@ const styles = StyleSheet.create({
     paddingRight: 50 ,
     marginTop: 17,
     backgroundColor: green
-  },     
+  },
+  disabledBtn:{
+    backgroundColor: gray
+  },         
   btnText:{
     color: white
   },
