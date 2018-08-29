@@ -14,6 +14,13 @@ class NewDeck extends React.Component {
     }))
   }
 
+
+  handleSubmit = () => {
+    this.setState(()=> ({
+      title: '',      
+    }))
+  }
+
   isDisabled = () => {
     return this.state.title===''
   }
@@ -31,7 +38,7 @@ class NewDeck extends React.Component {
         <TouchableOpacity 
           disabled={ this.isDisabled() } 
           style={this.isDisabled() ? [styles.btn,styles.disabledBtn] : styles.btn}
-          onPress={() => console.log(title)}>
+          onPress={() => this.handleSubmit()}>
           <Text style={styles.btnText}>Submit</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
