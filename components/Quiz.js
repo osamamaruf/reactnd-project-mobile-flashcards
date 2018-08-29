@@ -7,7 +7,8 @@ class Quiz extends React.Component {
   
   state = {
     index: 0,
-    card:'question'
+    card:'question',
+    correct: 0
   }
 
   toggleCard = () => {
@@ -19,10 +20,31 @@ class Quiz extends React.Component {
     })
   }
 
+  nextCard = (answer) => {
+    this.setState((prevState)=>{      
+      return {
+        index: prevState.index + 1,
+        correct: answer === 'correct' ? prevState.correct + 1 : prevState.correct
+      }      
+      
+    })
+  }  
+
   render() {
     const { deck } = this.props   
     const { questions } = deck
-    const { index, card } = this.state
+    const { index, card, correct } = this.state
+
+    if(index === questions.length){
+      return (
+        <View style={styles.container}>
+        <Text style={styles.questionTxt}>{questions.length}/{questions.length}</Text>
+        <View style={[styles.container, styles.mainContent]}>
+          <Text> Your Score { (correct/questions.length) * 100 } % </Text>                              
+        </View>
+      </View>
+      )
+    }
 
     return (
       <View style={styles.container}>
@@ -36,12 +58,12 @@ class Quiz extends React.Component {
           </TouchableOpacity>
           <TouchableOpacity 
             style={[styles.btn, styles.addBtn]}
-            onPress={() => console.log('Correct!')}>
+            onPress={() => this.nextCard('correct')}>
             <Text style={ styles.btnText }>Correct</Text>
           </TouchableOpacity>
           <TouchableOpacity 
             style={[styles.btn, styles.quizBtn]}
-            onPress={() => console.log('Incorrect!')}>
+            onPress={() => this.nextCard('inccorrect')}>
             <Text style={ styles.btnText }>Incorrect</Text>          
           </TouchableOpacity>
         </View>
