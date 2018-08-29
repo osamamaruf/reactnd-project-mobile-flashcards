@@ -25,6 +25,13 @@ export default class AddCard extends React.Component {
     }
   }
 
+  handleSubmit = () => {
+    this.setState(()=> ({
+      question: '',
+      answer:''
+    }))
+  }
+
   render() {
     const { question, answer } = this.state
     return (
@@ -43,7 +50,7 @@ export default class AddCard extends React.Component {
         />
         <TouchableOpacity 
           disabled={ this.isDisabled() } style={this.isDisabled() ? [styles.btn,styles.disabledBtn] : styles.btn}         
-          onPress={() => console.log('Pressed!', this.state)}>
+          onPress={() => this.handleSubmit()}>
           <Text style={styles.btnText}>Submit</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
