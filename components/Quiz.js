@@ -1,18 +1,38 @@
 import React from 'react';
 import { StyleSheet, Text, View , TouchableOpacity} from 'react-native';
 import { white, red, green } from '../utils/colors'
+import { connect } from 'react-redux'
 
-export default class Quiz extends React.Component {
+class Quiz extends React.Component {
+  
+  state = {
+    index: 0,
+    card:'question'
+  }
+
+  toggleCard = () => {
+    this.setState((prevState)=>{      
+      return {
+        card: prevState.card ==='question'? 'answer' : 'question'
+      }      
+      
+    })
+  }
+
   render() {
+    const { deck } = this.props   
+    const { questions } = deck
+    const { index, card } = this.state
+
     return (
       <View style={styles.container}>
-        <Text style={styles.questionTxt}>Quiz</Text>
+        <Text style={styles.questionTxt}>{index + 1}/{questions.length}</Text>
         <View style={[styles.container, styles.mainContent]}>
-          <Text>Question Text</Text>
+          <Text>{ card==='question'? questions[index].question : questions[index].answer}</Text>
           <TouchableOpacity 
             style={[styles.btn, styles.answerBtn]}
-            onPress={() => console.log('Answer!')}>
-            <Text style={ styles.btnAnswerText }>Answer</Text>
+            onPress={() => this.toggleCard()}>
+            <Text style={ styles.btnAnswerText }>{ card==='question'? 'Answer' : 'Question'}</Text>
           </TouchableOpacity>
           <TouchableOpacity 
             style={[styles.btn, styles.addBtn]}
@@ -74,3 +94,11 @@ const styles = StyleSheet.create({
     padding: 10
   }
 });
+
+function mapStateToProps (decks, ownProps) {
+  return {
+    deck : decks[ownProps.navigation.state.params.key]
+  }
+}
+
+export default connect(mapStateToProps)(Quiz)
