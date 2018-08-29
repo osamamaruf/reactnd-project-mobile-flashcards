@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux'
 import Deck from './Deck'
-import { white, red, green } from '../utils/colors'
+import { white, green } from '../utils/colors'
 
 class DeckDetail extends React.Component {
   render() {
@@ -18,7 +18,7 @@ class DeckDetail extends React.Component {
             'AddCard',
             { key: deck.title }
           )}>
-          <Text style={ styles.btnText }>Add Card</Text>
+          <Text>Add Card</Text>
         </TouchableOpacity>
         <TouchableOpacity 
           style={[styles.btn, styles.quizBtn]}
@@ -49,10 +49,10 @@ const styles = StyleSheet.create({
     marginTop: 17,
   },
   addBtn: {
-    backgroundColor: green
+    backgroundColor: white,    
   },
   quizBtn:{
-    backgroundColor: red
+    backgroundColor: green,
   }, 
   btnText:{
     color: white
