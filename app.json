@@ -6,9 +6,9 @@
     "description": "Your mobile flash card experience.",
     "slug": "udacicards",
     "version": "1.0",
-    "icon": "https://i.imgur.com/T302ESt.png",
+    "icon": "https://i.imgur.com/NSuQEf3.png",
     "notification": {
-      "icon": "https://i.imgur.com/T302ESt.png"
+      "icon": "https://i.imgur.com/NSuQEf3.png"
     },    
     "ios": {
       "bundleIdentifier": "org.udacicards.exp"
