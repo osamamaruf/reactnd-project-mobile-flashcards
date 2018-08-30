@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { blue } from '../utils/colors'
 
 function QuizResult (props) {
     const { correctResults, totalQuestions } = props
@@ -8,8 +9,9 @@ function QuizResult (props) {
     return (
       <View style={styles.container}>
         <Text style={styles.questionTxt}>{totalQuestions}/{totalQuestions}</Text>
-        <View style={[styles.container, styles.mainContent]}>
-          <Text> Your Score { percentage } % </Text>                              
+        <View style={[styles.mainContent]}>
+          <Text style={styles.header}>Your Score</Text>  
+          <Text style={styles.percentage}>{ percentage } % </Text>                              
         </View>
       </View>
     )
@@ -17,16 +19,26 @@ function QuizResult (props) {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,    
+        flex: 1,
+        justifyContent: 'space-between'        
     },
     mainContent:{
-        flex: 1    ,
-        alignItems: 'center',
+        flex: 1,
         justifyContent: 'center',
+        alignItems: 'center',
     },   
     questionTxt:{
         padding: 10
-    }
+    },
+    header: {
+        fontSize: 35,
+        textAlign: 'center',
+    },
+    percentage: {
+        color: blue,
+        fontSize: 60,
+        textAlign: 'center',
+    },
 })  
 
 export default QuizResult;
