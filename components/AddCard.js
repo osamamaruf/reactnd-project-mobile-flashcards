@@ -39,7 +39,9 @@ class AddCard extends React.Component {
     this.setState(()=> ({
       question: '',
       answer:''
-    }))
+    }))    
+    
+    this.props.navigation.goBack();
   }
 
   render() {
