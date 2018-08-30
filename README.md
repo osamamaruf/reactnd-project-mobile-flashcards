@@ -17,7 +17,7 @@ Additionaly the user will be notified daily on 20: 00 hrs to study in case they 
 
 
 # Platform
-The application has been tested on Android ( 6.0 Marshmellow ).
+The application has been tested on Android.
 
 ## Installation
 
