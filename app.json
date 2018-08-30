@@ -1,5 +1,20 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0"
+    "sdkVersion": "27.0.0",
+    "orientation": "portrait",
+    "name": "UdaciCards",
+    "description": "Your mobile flash card experience.",
+    "slug": "udacicards",
+    "version": "1.0",
+    "icon": "https://i.imgur.com/T302ESt.png",
+    "notification": {
+      "icon": "https://i.imgur.com/T302ESt.png"
+    },    
+    "ios": {
+      "bundleIdentifier": "org.udacicards.exp"
+    },
+    "android": {
+     "package": "org.udacicards.exp"
+    }
   }
 }
