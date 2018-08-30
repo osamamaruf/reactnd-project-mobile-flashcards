@@ -1,8 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, KeyboardAvoidingView, TextInput, TouchableOpacity } from 'react-native';
 import { green, white, gray } from '../utils/colors'
+import { connect } from 'react-redux'
+import { addCard } from '../actions'
 
-export default class AddCard extends React.Component {
+class AddCard extends React.Component {
   
   state = {
     question: '',
@@ -26,6 +28,14 @@ export default class AddCard extends React.Component {
   }
 
   handleSubmit = () => {
+    const { question, answer } = this.state
+    const { dispatch } = this.props
+        
+    dispatch(addCard( this.props.navigation.state.params.key,{    
+     question,
+     answer    
+    }))
+
     this.setState(()=> ({
       question: '',
       answer:''
@@ -90,3 +100,5 @@ const styles = StyleSheet.create({
 
   }
 });
+
+export default connect()(AddCard)
