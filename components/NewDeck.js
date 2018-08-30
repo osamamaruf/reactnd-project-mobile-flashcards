@@ -50,7 +50,7 @@ class NewDeck extends React.Component {
           disabled={ this.isDisabled() } 
           style={this.isDisabled() ? [styles.btn,styles.disabledBtn] : styles.btn}
           onPress={() => this.handleSubmit()}>
-          <Text style={styles.btnText}>Submit</Text>
+          <Text style={styles.btnText}>Create Deck</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
     );
