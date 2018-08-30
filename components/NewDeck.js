@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, KeyboardAvoidingView, TextInput, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux'
 import { green, white, gray } from '../utils/colors'
+import { addDeck } from '../actions'
 
 class NewDeck extends React.Component {
   state = {
@@ -16,6 +17,16 @@ class NewDeck extends React.Component {
 
 
   handleSubmit = () => {
+    const { title } = this.state
+    const { dispatch } = this.props
+
+    dispatch(addDeck({    
+      [title] : {
+        title,
+        questions: []
+      }      
+    }))
+
     this.setState(()=> ({
       title: '',      
     }))
