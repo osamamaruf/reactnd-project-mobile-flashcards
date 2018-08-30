@@ -40,7 +40,7 @@ class Quiz extends React.Component {
         <View style={styles.container}>
         <Text style={styles.questionTxt}>{questions.length}/{questions.length}</Text>
         <View style={[styles.container, styles.mainContent]}>
-          <Text> Your Score { (correct/questions.length) * 100 } % </Text>                              
+          <Text> Your Score { ((correct/questions.length) * 100).toFixed(2) } % </Text>                              
         </View>
       </View>
       )
