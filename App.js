@@ -72,13 +72,13 @@ const MainNavigator = createStackNavigator({
   },
   DeckDetail: {
     screen: DeckDetail,
-    navigationOptions: {
-      title: 'UdaciCards',
-      headerTintColor: white,
-      headerStyle: {
-        backgroundColor: blue,
-      }
-    }
+    navigationOptions : ({ navigation }) => ({
+      title: navigation.state.params.key,
+      headerTintColor: white, 
+      headerStyle: { 
+        backgroundColor: blue, 
+      } 
+    })
   },
   AddCard: {
     screen: AddCard,
