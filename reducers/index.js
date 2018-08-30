@@ -13,13 +13,15 @@ function decks (state = {}, action) {
           ...action.deck
         }
       case ADD_CARD :
+        const { question, answer } = action.card
         return {          
           ...state,
           [action.title]: {
                     ...state[action.title],
                     questions: state[action.title].questions.concat({
-                        question: action.question,
-                        answer: action.answer})
+                        question,
+                        answer
+                      })
             }
         }
       default :
