@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View , TouchableOpacity} from 'react-native';
 import { white, red, green } from '../utils/colors'
 import { connect } from 'react-redux'
+import QuizResult from './QuizResult'
 
 class Quiz extends React.Component {
   
@@ -37,12 +38,7 @@ class Quiz extends React.Component {
 
     if(index === questions.length){
       return (
-        <View style={styles.container}>
-        <Text style={styles.questionTxt}>{questions.length}/{questions.length}</Text>
-        <View style={[styles.container, styles.mainContent]}>
-          <Text> Your Score { ((correct/questions.length) * 100).toFixed(2) } % </Text>                              
-        </View>
-      </View>
+        <QuizResult correctResults={ correct } totalQuestions= { questions.length }/>
       )
     }
 
