@@ -3,6 +3,8 @@ import { StyleSheet, Text, KeyboardAvoidingView, TextInput, TouchableOpacity } f
 import { connect } from 'react-redux'
 import { green, white, gray } from '../utils/colors'
 import { addDeck } from '../actions'
+import { StackActions, NavigationActions } from 'react-navigation';
+
 
 class NewDeck extends React.Component {
   state = {
@@ -30,6 +32,16 @@ class NewDeck extends React.Component {
     this.setState(()=> ({
       title: '',      
     }))
+
+    const resetAction = StackActions.reset({
+      index: 1,
+      actions: [
+        NavigationActions.navigate({ routeName: 'Home' }),
+        NavigationActions.navigate({ routeName: 'DeckDetail' , params : { key : title }}),
+      ],
+    });
+
+    this.props.navigation.dispatch(resetAction);
   }
 
   isDisabled = () => {
