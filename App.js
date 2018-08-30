@@ -11,11 +11,15 @@ import Quiz from './components/Quiz'
 import { createMaterialTopTabNavigator, createStackNavigator } from 'react-navigation'
 import { Constants } from 'expo'
 import { blue, white } from './utils/colors'
+import middleware from './middleware'
 
-export default class App extends React.Component {
+const store = createStore(reducer, middleware)
+
+export default class App extends React.Component {  
+  
   render() {
     return (
-      <Provider store={createStore(reducer)}>
+      <Provider store={store}>
         <View style={styles.container}>
           <UdaciStatusBar backgroundColor={blue} barStyle="light-content"/>
           <MainNavigator />
