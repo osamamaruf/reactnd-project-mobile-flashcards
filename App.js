@@ -12,10 +12,15 @@ import { createMaterialTopTabNavigator, createStackNavigator } from 'react-navig
 import { Constants } from 'expo'
 import { blue, white } from './utils/colors'
 import middleware from './middleware'
+import { setLocalNotification } from './utils/helpers'
 
 const store = createStore(reducer, middleware)
 
 export default class App extends React.Component {  
+
+  componentDidMount(){
+    setLocalNotification()
+  }
   
   render() {
     return (
