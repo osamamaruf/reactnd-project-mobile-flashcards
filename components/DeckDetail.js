@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 import Deck from './Deck'
 import { white, green } from '../utils/colors'
 
-class DeckDetail extends React.Component {
-  render() {
-    const { deck } = this.props 
+function DeckDetail (props) {
+  
+    const { deck, navigation } = props 
     return (
       <View style={styles.container}>
         <View style={styles.deck}> 
@@ -14,7 +14,7 @@ class DeckDetail extends React.Component {
         </View>
         <TouchableOpacity 
           style={[styles.btn, styles.addBtn]}
-          onPress={() => this.props.navigation.navigate(
+          onPress={() => navigation.navigate(
             'AddCard',
             { key: deck.title }
           )}>
@@ -22,15 +22,14 @@ class DeckDetail extends React.Component {
         </TouchableOpacity>
         <TouchableOpacity 
           style={[styles.btn, styles.quizBtn]}
-          onPress={() => this.props.navigation.navigate(
+          onPress={() => navigation.navigate(
             'Quiz',
             { key: deck.title }
           )}>
           <Text style={ styles.btnText }>Start a Quiz</Text>          
         </TouchableOpacity>
       </View>
-    );
-  }
+    );  
 }
 
 const styles = StyleSheet.create({
