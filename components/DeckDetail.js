@@ -26,7 +26,7 @@ class DeckDetail extends React.Component {
             'Quiz',
             { key: deck.title }
           )}>
-          <Text style={ styles.btnText }>Start Quiz</Text>          
+          <Text style={ styles.btnText }>Start a Quiz</Text>          
         </TouchableOpacity>
       </View>
     );

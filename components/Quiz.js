@@ -50,7 +50,7 @@ class Quiz extends React.Component {
           <TouchableOpacity 
             style={[styles.btn, styles.answerBtn]}
             onPress={() => this.toggleCard()}>
-            <Text style={ styles.btnAnswerText }>{ card==='question'? 'Answer' : 'Question'}</Text>
+            <Text style={ styles.btnAnswerText }>{ card==='question'? 'Show Answer' : 'Show Question'}</Text>
           </TouchableOpacity>
           <TouchableOpacity 
             style={[styles.btn, styles.addBtn]}
