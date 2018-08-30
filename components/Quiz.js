@@ -32,13 +32,17 @@ class Quiz extends React.Component {
   }  
 
   render() {
-    const { deck } = this.props   
+    const { deck, navigation } = this.props   
     const { questions } = deck
     const { index, card, correct } = this.state
 
     if(index === questions.length){
       return (
-        <QuizResult correctResults={ correct } totalQuestions= { questions.length }/>
+        <QuizResult 
+          correctResults={ correct } 
+          totalQuestions= { questions.length } 
+          title={ deck.title }
+          navigation={navigation}/>
       )
     }
 
